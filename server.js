@@ -10,10 +10,16 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://portfolio-web-mocha-eta.vercel.app/"],
-    methods: ["POST"],
+    origin: [
+      "http://localhost:5173",
+      "https://portfolio-web-mocha-eta.vercel.app",
+      "https://portfolio-web-mocha-eta.vercel.app/",
+    ],
+    methods: ["GET", "POST", "OPTIONS"],
+    credentials: false,
   })
 );
+
 
 app.post("/api/sendMail", async (req, res) => {
   const { name, email, message } = req.body;
